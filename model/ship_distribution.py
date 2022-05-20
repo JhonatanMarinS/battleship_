@@ -1,17 +1,14 @@
-from model.ship import Ship
-from model.coordinate import Coordinate
+from .ship import Ship
 
 
 class ShipDistribution:
-    def __init__(self, data, places: [], ship: Ship, orientation: int, status: str):
-        self.places = Coordinate
+    def __init__(self, ship: Ship):
+        self.places = []
         self.ship = Ship
-        self.orientation = int
-        self.status = str
+        self.orientation = 0
+        self.state = "FREE"
 
     def ship_distribution(self, data, ship: Ship):
-        self.places = Coordinate[Ship(data.num_places)]
-        self.status = "FREE"
-
+        self.places =[Ship(data.num_places)]
 
 

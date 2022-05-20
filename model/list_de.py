@@ -1,4 +1,4 @@
-from .node import Node
+from .node_de import NodeDe
 from .ship_distribution import ShipDistribution
 
 class ListDe:
@@ -8,24 +8,31 @@ class ListDe:
 
     def add(self, data:ShipDistribution):
         if self.head == None:
-            self.head = Node(data)
+            self.head = NodeDe(data)
         else:
             temp = self.head
             while temp.next != None:
                 temp = temp.next
-            temp.next = Node(data)
+            temp.next = NodeDe(data)
             temp.next.previous = temp
         self.count =+ 1
 
     def add_to_start(self, data:ShipDistribution):
         if self.head == None:
-            self.head = Node(data)
+            self.head = NodeDe(data)
         else:
-            new_node = Node(data)
-            new_node.next = self.head
-            self.head.previous = new_node
-            self.head = new_node
+            self.head.previous = NodeDe
+            self.head.previous.next = self.head
+            self.head = self.head.previous
         self.count =+ 1
+
+    def clone_list(self):
+        list_clon = ListDe()
+        temp = self.head
+        while temp.next != None:
+            list_clon.add(temp.data)
+            temp = temp.next
+        return list_clon
 
     def list(self):
         list = []
@@ -34,5 +41,7 @@ class ListDe:
             while temp.next != None:
                 list.append(temp.data)
                 temp = temp.next
+        else:
+            raise Exception("No hay datos que listar")
         return list
 
