@@ -1,4 +1,5 @@
 from type_user import TypeUser
+from .user_dto import UserDTO
 
 class User:
     def __init__(self, data, id:int, type_user:TypeUser):
@@ -11,3 +12,6 @@ class User:
 
         else:
             raise Exception("Datos no válidos para crear usuario")
+
+    def toUserDTO(self):
+        return UserDTO(self.email, self.type_user.description)

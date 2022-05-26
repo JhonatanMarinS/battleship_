@@ -23,8 +23,8 @@ def login():
     except Exception as e:
         return jsonify({'message': str(e)})
 
-#terminar el token
-#revisar el codigo del profe para hacer el dto
+#terminar el token LISTO
+#revisar el codigo del profe para hacer el dto LISTO
 #hacer todo en usuario service en un solo controller
 #hacer metodo posicionar(definir) barco, validar disparo
 
