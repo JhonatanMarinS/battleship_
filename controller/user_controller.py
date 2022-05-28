@@ -3,6 +3,7 @@ from service.user_service import UserService
 from util.util_encoder import UtilEncoder
 from flask_jwt_extended import create_access_token, jwt_required,get_jwt_identity
 
+
 app_user = Blueprint("app_user",__name__)
 
 user_service = UserService()
@@ -31,4 +32,9 @@ def define_location():
 @app_user.route('/user/validateshoot/<x>/<y>')
 def validate_shoot(x:int, y:int):
     return Response(status=200, response=json.dumps(user_service.validate_shoot(x, y),
+                                                 cls=UtilEncoder), mimetype="application/json")
+
+@app_user.route('/user/gamelift')
+def game_lift():
+    return Response(status=200, response=json.dumps(user_service.game_lift(),
                                                     cls=UtilEncoder), mimetype="application/json")

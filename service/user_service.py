@@ -2,6 +2,9 @@ from model.user import User
 from model.type_user import TypeUser
 from model.game import Game
 
+
+import random
+
 class UserService:
 
     def __init__(self):
@@ -90,4 +93,35 @@ class UserService:
 
     def define_location(self, x:int, y:int, player:User):
         Game.validate_shoot(x, y, player)
+
+
+
+    def move_jp1(self):
+        choices = ["rock", "paper", "scissors", "lizard", "spock"]
+        self.player_1 = random.choice(choices)
+
+    def move_jp2(self,):
+        choices = ["rock", "paper", "scissors", "lizard", "spock"]
+        self.player_2 = random.choice(choices)
+
+    def game_lift(self):
+        self.move_jp1()
+        self.move_jp2()
+
+        winmoves = {
+            "rock": ["scissors", "lizard"],
+            "paper": ["rock", "spock"],
+             "scissors": ["paper", "lizard"],
+             "lizard": ["paper", "spock"],
+             "spock": ["scissors", "rock"],
+        }
+
+        if self.player_1 == self.player_2:
+            return "jp1: "+self.player_1, "jp2: "+self.player_2,"Ha sido un empate"
+
+        elif self.player_2 in winmoves[self.player_1]:
+            return "jp1: "+self.player_1, "jp2: "+self.player_2, "Ha ganado el jugador 1"
+
+        else:
+            return "jp1: "+self.player_1, "jp2: "+self.player_2, "Ha ganado el jugador 2"
 
