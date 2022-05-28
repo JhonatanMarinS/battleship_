@@ -2,7 +2,7 @@ from .node_de import NodeDe
 from .ship_distribution import ShipDistribution
 
 class ListDe:
-    def __init__(self, data):
+    def __init__(self):
         self.head = None
         self.count = 0
 
@@ -27,21 +27,18 @@ class ListDe:
         self.count =+ 1
 
     def clone_list(self):
-        list_clon = ListDe()
+        list = ListDe()
         temp = self.head
-        while temp.next != None:
-            list_clon.add(temp.data)
+        while temp != None:
+            list.add(temp.data)
             temp = temp.next
-        return list_clon
+        return list
 
     def list(self):
         list = []
-        if self.head != None:
-            temp = self.head
-            while temp.next != None:
-                list.append(temp.data)
-                temp = temp.next
-        else:
-            raise Exception("No hay datos que listar")
+        temp = self.head
+        while temp != None:
+            list.append(temp.data)
+            temp = temp.next
         return list
 

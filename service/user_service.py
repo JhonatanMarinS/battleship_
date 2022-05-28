@@ -1,5 +1,6 @@
 from model.user import User
 from model.type_user import TypeUser
+from model.game import Game
 
 class UserService:
 
@@ -48,7 +49,7 @@ class UserService:
 
     def login(self, data):
         for user in self.userList:
-            if data['email'] == user.email and data['password']== user.password:
+            if data['email'] == user.email and data['password'] == user.password:
                 return user
         return None
 
@@ -83,7 +84,8 @@ class UserService:
         else:
             raise Exception("No se ha encontrado ningun usuario")
 
-
+    def define_location(self, x:int, y:int, orientation:int):
+        Game.define_location(x, y, orientation)
 
 
 

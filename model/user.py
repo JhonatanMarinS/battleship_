@@ -1,4 +1,4 @@
-from type_user import TypeUser
+from .type_user import TypeUser
 from .user_dto import UserDTO
 
 class User:

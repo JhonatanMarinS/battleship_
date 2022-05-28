@@ -12,7 +12,7 @@ def list():
     return Response(status=200, response=json.dumps(user_service.read_users(),
                                                     cls=UtilEncoder), mimetype="application/json")
 
-@app_user.route('/user/login', methops=['POST'])
+@app_user.route('/user/login', methods=['POST'])
 def login():
     try:
         email = request.json.get('email')
@@ -23,8 +23,7 @@ def login():
     except Exception as e:
         return jsonify({'message': str(e)})
 
-#terminar el token LISTO
-#revisar el codigo del profe para hacer el dto LISTO
-#hacer todo en usuario service en un solo controller
-#hacer metodo posicionar(definir) barco, validar disparo
-
+@app_user.route('/user/definirubi/<x>/<y>/<orientation>')
+def define_location():
+    return Response(status=200, response=json.dumps(user_service.define_location(),
+                                                    cls=UtilEncoder), mimetype="application/json")
