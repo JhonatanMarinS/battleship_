@@ -88,4 +88,6 @@ class UserService:
         Game.define_location(x, y, orientation)
 
 
+    def define_location(self, x:int, y:int, player:User):
+        Game.validate_shoot(x, y, player)
 

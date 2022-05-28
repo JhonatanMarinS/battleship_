@@ -27,3 +27,8 @@ def login():
 def define_location():
     return Response(status=200, response=json.dumps(user_service.define_location(),
                                                     cls=UtilEncoder), mimetype="application/json")
+
+@app_user.route('/user/validateshoot/<x>/<y>')
+def validate_shoot(x:int, y:int):
+    return Response(status=200, response=json.dumps(user_service.validate_shoot(x, y),
+                                                    cls=UtilEncoder), mimetype="application/json")
